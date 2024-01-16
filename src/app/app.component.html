@@ -1,18 +1,36 @@
+<div *ngIf="allBooks.length > 0">
+  <h2>Listado de todos los libros:</h2>
+  <ul>
+    <li *ngFor="let book of allBooks">
+      Autor: {{ book.autor }} - Título: {{ book.titulo }} - ID: {{ book.id }}
+    </li>
+  </ul>
+</div>
+
+<div *ngIf="specificBook">
+  <h2>Libro específico:</h2>
+  <p>Autor: {{ specificBook.autor }} - Título: {{ specificBook.titulo }} - ID: {{ specificBook.id }}</p>
+</div>
+
+<div *ngIf="booksByAuthor && booksByAuthor.length > 0">
+  <h2>Libros del autor:</h2>
+  <ul>
+    <li *ngFor="let book of booksByAuthor">
+      <p>Autor: {{ book.autor }} - Título: {{ book.titulo }} - ID: {{ book.id }}</p>
+    </li>
+  </ul>
+</div>
 
 
-<div class="container">
-  <h1>Bienvenido a Mi Aplicación</h1>
-  <p>Esta es una aplicación genial donde puedes encontrar y leer libros en línea.</p>
 
-  <div class="row">
-      <div *ngFor="let book of books" class="col-md-4">
-          <div class="card">
-              <div class="card-body">
-                  <h2 class="card-title">{{ book.title }}</h2>
-                  <p class="card-text">Autor: {{ book.author }}</p>
-                  <p class="card-text">{{ book.description }}</p>
-              </div>
-          </div>
-      </div>
-  </div>
+
+
+
+
+<div *ngIf="noBooksFound">
+  <p>No se encontraron libros del autor.</p>
+</div>
+
+<div *ngIf="noBooksFound">
+  <p>No se encontraron libros.</p>
 </div>
